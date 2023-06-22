@@ -3,10 +3,16 @@
 This repo contains short Bash script to fetch a Client Extension sample from liferay/liferay-portal into the current directory. It's assumed the samples are located in [https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions](https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions).
 
 ## Usage
-     
-We'll assume you have a Liferay Workspace placed under `liferay-workspace` directory.
-         
+
+`curl -s https://raw.githubusercontent.com/sustacek/liferay-cx/main/get-cx-sample.sh | bash -s liferay-sample-custom-element-3`
+
+or 
+
+`./get-cx-sample.sh liferay-sample-custom-element-4`
+
 ### Without cloning this repo
+
+We'll assume Liferay Workspace is located in the `liferay-workspace` directory:
 ```
 $ cd liferay-workspace/client-extensions
 
@@ -31,6 +37,8 @@ drwxr-xr-x   8 jsustacek  staff     256 Jun 21 14:59 src
 ```
 
 ### With this repo cloned
+
+We'll assume Liferay Workspace is located in the `liferay-workspace` directory:
 ```
 $ alias get-cx-sample='<this_repo_clone_dir>/get-cx-sample.sh'
 
