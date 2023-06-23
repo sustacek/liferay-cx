@@ -1,0 +1,44 @@
+name: test
+on: [push]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-20.04
+          - macos-13
+          - macos-12
+          - macos-11
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      # fetch some samples and verify directories were created and contain the sample's code
+      - run: ./get-cx-sample.sh liferay-sample-batch
+
+      - run: ls -la liferay-sample-batch*
+      - run: ls -la liferay-sample-batch* | grep client-extension.yaml
+      - run: ls -la liferay-sample-batch* | grep batch
+
+
+      - run: ./get-cx-sample.sh liferay-sample-custom-element-1
+
+      - run: ls -la liferay-sample-custom-element-1*
+      - run: ls -la liferay-sample-custom-element-1* | grep client-extension.yaml
+      - run: ls -la liferay-sample-custom-element-1* | grep assets
+
+
+      - run: ./get-cx-sample.sh liferay-sample-etc-spring-boot
+
+      - run: ls -la liferay-sample-etc-spring-boot*
+      - run: ls -la liferay-sample-etc-spring-boot* | grep client-extension.yaml
+      - run: ls -la liferay-sample-etc-spring-boot* | grep Dockerfile
+      - run: ls -la liferay-sample-etc-spring-boot* | grep LCP.json
+      - run: ls -la liferay-sample-etc-spring-boot* | grep src
+
+      # test we can fetch the same sample again and it will be placed into a separate directory
+      - run: ./get-cx-sample.sh liferay-sample-batch
+      - run: ls ./ | grep liferay-sample-batch
+
+      - run: ls ./ | grep liferay-sample-batch | wc -w | grep -q 2
