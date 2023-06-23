@@ -36,11 +36,6 @@ ENV variables:
 EOF
 }
 
-if ! ${GIT_EXECUTABLE} version; then
-  echo "GIT_EXECUTABLE '${GIT_EXECUTABLE}' not found, wrong path?"
-  ecit 2
-fi
-
 main() {
   # validate inputs
   local cx_sample_name=${1:-}
@@ -49,6 +44,12 @@ main() {
     usage
 
     exit 1
+  fi
+
+  # validate git is available
+  if ! ${GIT_EXECUTABLE} version; then
+    echo "GIT_EXECUTABLE '${GIT_EXECUTABLE}' not found, wrong path?"
+    ecit 2
   fi
 
   if [[ ${VERBOSE} == 'true' ]]; then
