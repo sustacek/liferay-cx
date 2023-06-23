@@ -1,5 +1,7 @@
 # liferay-cx
 
+![tests status](https://github.com/sustacek/liferay-cx/actions/workflows/run-tests.yaml/badge.svg?event=push)
+
 This repo contains short Bash script to fetch a Client Extension sample from liferay/liferay-portal into the current directory. It's assumed the samples are located in [https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions](https://github.com/liferay/liferay-portal/tree/master/workspaces/liferay-sample-workspace/client-extensions).
 
 ## Usage

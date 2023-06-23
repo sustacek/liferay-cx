@@ -1,4 +1,4 @@
-name: test
+name: Fetch CX Samples - Tests
 on: [push]
 jobs:
   test:
