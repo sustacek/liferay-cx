@@ -1,3 +1,9 @@
+# Note: This repository was archived
+   
+Although the script might still work, please rather use one of these approaches instead:
+* `blade samples client-extensions -l` + e.g. `blade samples client-extensions liferay-sample-custom-element-3` (from workspace root) **OR**
+* `curl -o com.liferay.sample.workspace-latest.zip https://repository.liferay.com/nexus/service/local/artifact/maven/content\?r\=liferay-public-releases\&g\=com.liferay.workspace\&a\=com.liferay.sample.workspace\&\v\=LATEST\&p\=zip` as mentioned in [https://learn.liferay.com/en/w/dxp/building-applications/client-extensions/working-with-client-extensions](https://learn.liferay.com/en/w/dxp/building-applications/client-extensions/working-with-client-extensions)
+
 # liferay-cx
 
 ![tests status](https://github.com/sustacek/liferay-cx/actions/workflows/run-tests.yaml/badge.svg?event=push)
